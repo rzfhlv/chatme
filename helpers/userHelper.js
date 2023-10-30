@@ -4,9 +4,20 @@ const users = [];
 function newUser(id, username, room) {
     const user = { id, username, room };
 
-    users.push(user)
-
+    let check = checkExistingUser(username);
+    if (check == undefined) {
+        users.push(user);
+    } else {
+        const index = users.findIndex(user => user.username === username);
+        users[index] = user;
+    }
+    
     return user;
+}
+
+// Check existing user
+function checkExistingUser(username) {
+    return users.find(user => user.username === username);
 }
 
 // Get current user

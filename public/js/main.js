@@ -23,7 +23,6 @@ socket.on('roomUsers', ({ room, users }) => {
 
 // Message from server
 socket.on('message', (message) => {
-    console.log(message);
     outputMessage(message);
 
     // Scroll down
@@ -64,7 +63,6 @@ function outputMessage(message) {
     para.classList.add('text');
     para.innerText = message.txt;
     div.appendChild(para);
-    console.log(div)
     document.querySelector('.chat-messages').appendChild(div);
 }
 
@@ -75,7 +73,6 @@ function outputRoomName(room) {
 
 // Add users to DOM
 function outputUsers(users) {
-    console.log({users});
     userList.innerHTML = '';
     users.forEach((user) => {
         const li = document.createElement('li');
